@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+  </head>
+  <body>
+    lllll
+   <script>
+
+     var body =document.getElementsByTagName('body')[0];
+    //  console.log(body)
+     var h =document.documentElement.clientHeight;
+     body.style.height = h + 'px';
+     // 滑动处理
+     var startX,startY,moveEndX,moveEndY,X,Y;
+     body.addEventListener('touchstart',function(e){
+        e.preventDefault();;// 阻止事件默认行为
+        startX = e.touches[0].pageX;
+        startY = e.touches[0].pageY;
+     },false)
+
+     body.addEventListener('touchmove',function(e){
+        e.preventDefault();;// 阻止事件默认行为
+        moveEndX = e.touches[0].pageX;
+        moveEndY = e.touches[0].pageY;
+        X = moveEndX - startX;
+        Y = moveEndY - startY;
+        // 防止中间抖动
+        if ( Math.abs(X) > Math.abs(Y) && X > 0 ) {
+            alert("向右"); // 从左向右滑动
+        }
+        else if ( Math.abs(X) > Math.abs(Y) && X < 0 ) {
+            alert("向左");// 从左向右滑动
+        }
+        else if ( Math.abs(Y) > Math.abs(X) && Y > 0) {
+            alert("向下");// 从上往下滑动
+        }
+        else if ( Math.abs(Y) > Math.abs(X) && Y < 0 ) {
+            alert("向上");// 从下往上滑动
+        }
+        else{
+            alert("没滑动");
+        }
+     })
+
+
+   </script>
+
+
+
+  </body>
+</html>

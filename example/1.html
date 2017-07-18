@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  </head>
+  <style>
+    html{
+      font-size: 12px;
+    }
+    ul{
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      font-size: 14px;
+    }
+    ul li{
+      list-style: none;
+      flex-grow: 1;
+      border: 1px solid #eee;
+      text-align: center;
+      font-size: 14px;
+      /*em 相对于自身字体大小*/
+      padding: 1rem;
+
+    }
+    li:nth-child(2n){
+      background: #bfa
+    }
+    li:nth-child(2n+1){
+      background: #fab
+    }
+  </style>
+  <body>
+
+   <ul>
+     <li>1</li>
+     <li>2</li>
+     <li>3</li>
+     <li>4</li>
+     <li>5</li>
+   </ul>
+
+
+    <script>
+      // 事件代理 子元素的事件 委托 父元素执行
+      // $('ul').delegate($('li'),'click',function(e){
+      //   console.log(e.target)
+      // })
+      document.getElementsByTagName('ul')[0].onclick =function(e){
+          console.log(e.target)
+      }
+      //1,字符串重复多少次
+      // if(typeof String.prototype.repeatStr != 'function'){
+      //       String.prototype.repeatStr = function(num){
+      //       //  console.log(this)
+      //       var str = '';
+      //       var _this = this;
+      //       for(var i=0;i<num;i++){
+      //         str += _this
+      //       }
+      //       return str
+      //     }
+      // }
+
+      //  var str = 'hello';
+      //  var t = str.repeatStr(3);
+      //  console.log(t)
+
+      // 2，已知有字符串foo=”get-element-by-id”,写一个function将其转化成驼峰表示法”getElementById”。
+      // function fun (str){
+      //   var arr = str.split('-')
+      //   //console.log(arr)
+      //   for(i=1;i<arr.length;i++){
+      //     // console.log(arr[i])
+      //     arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+      //   }
+      //   return arr.join('');
+      // }
+
+      // var foo = 'get-element-by-id';
+      // console.log(fun(foo))
+
+      //3,字符串去重
+    // function strNoReapted(str){
+    //   var obj = {};
+    //   var newStr = ''
+    //   for(var i=0;i<str.length;i++){
+    //     if(!obj[str[i]]){
+    //       newStr += str[i];
+    //       obj[str[i]] = 1; 利用对象属性唯一性 进行字符串去重
+    //     }
+    //   }
+
+    //   return newStr
+    // }
+    // console.log(strNoReapted('aaaabbbbccc'))
+
+//   function strNoReapted(str){
+//     var newStr = ''
+//     for(var i=0;i<str.length;i++){
+//       if(newStr.indexOf(str[i]) == -1){
+//         newStr += str[i];
+//       }
+//     }
+//     return newStr
+//   }
+// console.log(strNoReapted('aaaabbbbccc'))
+
+      // 4，字符串重复最多的字符 及个数
+//       function fn1(str){
+//         var strArr=str.split('');
+//         var strJson={};
+//         var maxLength=0;//最长的长度
+//         var value='';//字符值
+//       for(var i=0;i<strArr.length;i++){
+//           //没有就创建
+//           if(!strJson[ strArr[i] ]){
+//               strJson[ strArr[i] ]=[];
+//           }
+//           strJson[strArr[i]].push(strArr[i]);
+//       }
+//       // console.log(strJson)
+//     //遍历json找到最长的
+//     for(var attr in strJson){
+//       console.log(strJson[attr].length)
+//         if(strJson[attr].length>maxLength){
+//             maxLength=strJson[attr].length;
+//             value=attr;
+//         }
+//     }
+//     return '字符最多的是'+value+',出现了'+maxLength+'次';
+
+// }
+// function fun1(str){
+//   var strArr = str.split('').sort();// 拆分成数组 并进行排序
+//   str = strArr.join('');
+//   // console.log(str)
+//   var chart ;
+//   var num = 0;// 最长长度
+//   var reg = /(\w)\1+/g;
+//   str.replace(reg,function(a,b){
+//     //console.log(a)//a 表示匹配成功的子串
+//     // console.log(b)//b 表示匹配成功的内容
+//     if(a.length > num){
+//        num = a.length;
+//        chart = b
+//     }
+
+//   })
+//  console.log('重复最多的字符' + chart + '个数' + num)
+// }
+// console.log(fun1('hgfhjjshgijsahgdkagdkjwahdgafhhhhhhdafdkjwahfdkjahf'))
+
+// 数组去重
+// function fun(arr){
+//   var newArr = []
+//   for(var i=0;i<arr.length;i++){
+//     if(newArr.indexOf(arr[i]) == -1){ // 没有才添加
+//       newArr.push(arr[i])
+//     }
+//   }
+//   return newArr
+// }
+
+// console.log(fun([1,2,1,2,3,3,4,5]))
+
+// var reg = /o/g
+// var str = 'hel6000oolo'
+// var s = reg.exec(str)
+// // var s = str.match(reg)
+// console.log(s)
+
+    </script>
+  </body>
+</html>
